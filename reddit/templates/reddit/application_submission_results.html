@@ -1,0 +1,50 @@
+{% extends "reddit/application_base.html" %}
+{% block content %}
+
+<div class="container-fluid">
+    <h1>Reddit: Submission Results</h1>
+
+    <table class="table table-hover">
+        <caption>Submission Results</caption>
+        <thead>
+            <tr>
+                <th scope="col">Submission ID:</th>
+                <th scope="col">Submission Title:</th>
+                <th scope="col">Submission Score:</th>
+                <th scope="col">Autor:</th>
+                <th scope="col">Time Created:</th>
+                <th scope="col">Actions</th>
+
+
+            </tr>
+        </thead>
+        {% for submission in submission_results %}
+
+        <tbody>
+            <tr>
+
+                <!-- <th scope="row">1</th> -->
+                <td>{{ submission.submission_id }}</td>
+                <td>{{ submission.submission_title }}</td>
+                <td>{{ submission.submission_score }}</td>
+                <td>{{ submission.submission_author }}</td>
+                <td>{{ submission.submission_time_stamp }}</td>
+                <td>
+                    <a class="btn btn-warning" href="{{ submission.submission_url }}" target="_blank">Review</a>
+                    <a class="btn btn-danger" href="{{ submission.submission_url }}" target="_blank">Escalate</a>
+                    <a class="btn btn-success" href="{{ submission.submission_url }}" target="_blank">Ignore</a>
+                    <a class="btn btn-secondary" href="{{ submission.submission_url }}" target="_blank">Edit</a>
+                </td>
+
+                
+
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+
+</div>
+
+
+
+{% endblock content %}

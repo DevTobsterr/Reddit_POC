@@ -1,0 +1,21 @@
+{% extends "reddit/application_base.html" %}
+{% block content %}
+
+
+<div class="container">
+
+
+    <h1>Reddit Submission Search</h1>
+
+
+<form action="results" method="POST">
+    {% csrf_token %}
+    <!-- {{ form.sort_type }}
+    {{ form.result_count }} -->
+    <p>Please enter a subreddit to begin</p> {{ form.subreddit }} <button  class="btn btn-success" onclick="submit"> Search</button>
+
+</form>
+
+
+</div>
+{% endblock content %}
