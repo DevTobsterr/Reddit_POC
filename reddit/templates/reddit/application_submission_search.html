@@ -9,10 +9,19 @@
 
 
 <form action="results" method="POST">
+    <hr>
     {% csrf_token %}
-    <!-- {{ form.sort_type }}
-    {{ form.result_count }} -->
-    <p>Please enter a subreddit to begin</p> {{ form.subreddit }} <button  class="btn btn-success" onclick="submit"> Search</button>
+    
+    <h2 class="lead">Please enter a subreddit to begin your search.</h2>
+    <label for="form"> Subreddit: </label>
+    {{ form.subreddit }}
+    <label for="form"> Sort Type:  </label>
+    {{ form.sort_type }}
+    <label for="form"> number of Results: </label>
+    {{ form.result_count }}
+    <br>
+    <br>
+    <button  class="btn btn-success" onclick="submit"> Search</button>
 
 </form>
 
