@@ -2,13 +2,16 @@
 {% block content %}
 
 <div class="container-fluid">
-    <h1>Reddit: Submission Results</h1>
+    <h1>Submission Results</h1>
+    {% if submission_results %}
 
     <table class="table table-hover">
         <caption>Submission Results</caption>
         <thead>
             <tr>
                 <th scope="col">Submission ID:</th>
+                <th scope="col">Submission Subreddit:</th>
+
                 <th scope="col">Submission Title:</th>
                 <th scope="col">Submission Score:</th>
                 <th scope="col">Autor:</th>
@@ -18,6 +21,7 @@
 
             </tr>
         </thead>
+        
         {% for submission in submission_results %}
 
         <tbody>
@@ -25,21 +29,24 @@
 
                 <!-- <th scope="row">1</th> -->
                 <td>{{ submission.submission_id }}</td>
+                <td>{{ submission.submission_subreddit }}</td>
                 <td>{{ submission.submission_title }}</td>
                 <td>{{ submission.submission_score }}</td>
                 <td>{{ submission.submission_author }}</td>
                 <td>{{ submission.submission_time_stamp }}</td>
                 <td>
                     <a class="btn btn-warning" href="{{ submission.submission_url }}" target="_blank">Review</a>
+                    <a class="btn btn-success" href="{% url 'application_delete_submission' submission.submission_id %}">Ignore</a>
                     <a class="btn btn-danger" href="#">Escalate</a>
-                    <a class="btn btn-success" href="#">Ignore</a>
-                    <a class="btn btn-secondary" href="#">Edit</a>
                 </td>
 
             </tr>
         </tbody>
         {% endfor %}
     </table>
+    {% else %}
+    <h1>No Results found. To get results, use the search tool</h1>
+    {% endif %}
 
 </div>
 
