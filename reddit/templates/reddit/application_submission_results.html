@@ -1,9 +1,10 @@
 {% extends "reddit/application_base.html" %}
 {% block content %}
 
+{% if submission_results %}
 <div class="container-fluid">
     <h1>Submission Results</h1>
-    {% if submission_results %}
+
 
     <table class="table table-hover">
         <caption>Submission Results</caption>
@@ -45,7 +46,10 @@
         {% endfor %}
     </table>
     {% else %}
+    <div class="container">
     <h1>No Results found. To get results, use the search tool</h1>
+        
+    </div>
     {% endif %}
 
 </div>

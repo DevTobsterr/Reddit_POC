@@ -12,16 +12,18 @@
     <hr>
     {% csrf_token %}
     
-    <h2 class="lead">Please enter a subreddit to begin your search.</h2>
+    <h1 class="lead">Please enter a subreddit to begin your search.</h1>
+    <br>
     <label for="form"> Subreddit: </label>
     {{ form.subreddit }}
+    <br>
     <label for="form"> Sort Type:  </label>
     {{ form.sort_type }}
-    <label for="form"> number of Results: </label>
+    <br>
+    <label for="form"> Number of Results: </label>
     {{ form.result_count }}
     <br>
-    <br>
-    <button  class="btn btn-success" onclick="submit"> Search</button>
+    <button  class="btn btn-success" onclick="submit">Search</button>
 
 </form>
 
